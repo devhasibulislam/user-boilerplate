@@ -1,4 +1,5 @@
 /* internal imports */
+const { findById } = require("../schemas/user.schema");
 const User = require("../schemas/user.schema");
 const emailConfirmationUtility = require("../utilities/emailConfirmation.utility");
 
@@ -120,4 +121,20 @@ exports.confirmPasswordReset = async (token) => {
   user.save({ validateBeforeSave: false });
 
   return user;
+};
+
+/* remove a user account */
+exports.removeAnUser = async (id) => {
+  const user = await User.findById(id);
+
+  if (!user) {
+    return { acknowledgement: false };
+  }
+
+  if (user.role === "admin") {
+    return { invalidRole: true };
+  }
+
+  const result = await User.findByIdAndDelete(id);
+  return result;
 };

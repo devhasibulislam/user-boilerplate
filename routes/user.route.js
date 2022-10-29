@@ -43,5 +43,13 @@ router
   .get(userController.confirmPasswordReset)
   .patch(userController.forgotPassword);
 
+// remove an user account
+router.delete(
+  "/remove-user",
+  verifyTokenMiddleware,
+  authorizeRoleMiddleware("admin"),
+  userController.removeAnUser
+);
+
 /* export user router */
 module.exports = router;

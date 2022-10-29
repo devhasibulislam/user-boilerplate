@@ -43,14 +43,14 @@ exports.confirmSignedUpUser = async (req, res, next) => {
       return res.status(401).json({
         acknowledgement: false,
         message: "Unauthorized",
-        description: "The token provided by email is expired. Please, retry",
+        description: "Email provided token expired. Please, retry",
       });
     }
 
     res.status(200).json({
       acknowledgement: true,
-      message: "Account activated",
-      description: "Welcome to our website, you are ready to explore",
+      message: "OK",
+      description: "Account activated, ready to go",
       data: {
         name: user.name,
         email: user.email,
@@ -117,7 +117,7 @@ exports.persistMeLogin = async (req, res, next) => {
 
     res.status(200).json({
       acknowledgement: true,
-      message: "User retained",
+      message: "OK",
       description: "User founded logged in",
       data: result,
     });
@@ -133,8 +133,8 @@ exports.displayAllUsers = async (req, res, next) => {
 
     res.status(200).json({
       acknowledgement: true,
-      message: "Fetching complete",
-      description: "Successfully fetch all users",
+      message: "OK",
+      description: "Successfully fetching all users",
       data: result,
     });
   } catch (error) {
@@ -161,8 +161,8 @@ exports.forgotPassword = async (req, res, next) => {
 
     res.status(202).json({
       acknowledgement: true,
-      message: "Password reset",
-      description: "Successfully reset password, from now use new one",
+      message: "Accepted",
+      description: "Successfully reset password, ready to go",
       data: user,
     });
   } catch (error) {
@@ -185,14 +185,46 @@ exports.confirmPasswordReset = async (req, res, next) => {
 
     res.status(200).json({
       acknowledgement: true,
-      message: "Password reset complete",
-      description: "From now on use new password",
+      message: "OK",
+      description: "New password availability acceded successfully",
       data: {
         name: user.name,
         email: user.email,
         phone: user.phone,
         role: user.role,
       },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+/* remove an user account */
+exports.removeAnUser = async (req, res, next) => {
+  try {
+    const result = await userService.removeAnUser(req.query.id);
+
+    if (result.acknowledgement === false) {
+      return res.status(404).json({
+        acknowledgement: false,
+        message: "Not Found",
+        description: "User not found or exist",
+      });
+    }
+
+    if (result.invalidRole) {
+      return res.status(403).json({
+        acknowledgement: false,
+        message: "Forbidden",
+        description: "Invalid user role not be deleted",
+      });
+    }
+
+    res.status(202).json({
+      acknowledgement: true,
+      message: "Accepted",
+      description: "Successfully removed an user",
+      data: result,
     });
   } catch (error) {
     next(error);
