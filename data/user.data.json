@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Hasibul Islam",
+    "email": "hasib143sl@gmail.com",
+    "password": "Hasib@123",
+    "confirmPassword": "Hasib@123",
+    "avatar": "https://scontent.fdac8-1.fna.fbcdn.net/v/t39.30808-1/292419707_195698726125047_3778061367550352125_n.jpg?stp=c86.81.160.160a_dst-jpg_p320x320&_nc_cat=100&ccb=1-7&_nc_sid=7206a8&_nc_ohc=3tOANDkYxdUAX8P0lgr&_nc_ht=scontent.fdac8-1.fna&oh=00_AfBAx8p4UzfKvaF2V8cw1aJNQ_G7aPgRTa3KEwn147j2ww&oe=6360D0B9",
+    "phone": "+8801906315901",
+    "role": "admin"
+  },
+  {
+    "name": "Sadia Khanum",
+    "email": "sadiadhira01@gmail.com",
+    "password": "Sadia@123",
+    "confirmPassword": "Sadia@123",
+    "avatar": "https://scontent.fdac8-1.fna.fbcdn.net/v/t1.15752-9/306204410_453657170091324_903546272088867940_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=Dr9Gg7KuuIsAX_eB-nq&_nc_ht=scontent.fdac8-1.fna&oh=03_AdSEmdpFqfD4Hub2_FvYaepw9EuLiOBIaEkPXV-s-QdTvw&oe=6383ABAA",
+    "phone": "+8801309954147",
+    "role": "admin"
+  },
+  {
+    "name": "Nipa Akter",
+    "email": "akternipa941@gmail.com",
+    "password": "Nipa@123",
+    "confirmPassword": "Nipa@123",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQGh8VWicfZXKQ/profile-displayphoto-shrink_800_800/0/1654259823009?e=1672272000&v=beta&t=cxDF0KzfRNhFw91PF7OE_JV3Sbg9VkoeJr0PRK0e9as",
+    "phone": "+8801309954147"
+  }
+]
